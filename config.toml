@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "http://juliajin.netlify.app/"
 languageCode = "en-us"
-title = "Forty"
+title = "Portfolio website for Kostis Christodoulou"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -19,7 +19,7 @@ disqusShortname = ""
   # CSS class.
 
   # Provide your metadata here.
-  name = "Your name"
+  name = ""
   description = "Your description"
 
   # Link custom assets relative to /static
