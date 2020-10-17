@@ -1,5 +1,5 @@
 # Site settings
-baseURL = "http://juliajin.netlify.app/"
+baseURL = "https://juliajin.netlify.app/"
 languageCode = "en-us"
 title = "Portfolio website for Kostis Christodoulou"
 theme = "forty"
