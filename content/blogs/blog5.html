@@ -9,10 +9,7 @@ image: "project1.jpg"
 
 <div id="imdb-ratings-differences-between-directors" class="section level1">
 <h1>IMDB ratings: Differences between directors</h1>
-<p>We explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. The confidence intervals for the mean ratings of these two directors overlap.</p>
-<p><img src="C:/Users/Julia/Desktop/my_website/images/directors.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>First, we will reproduce the graph above.</p>
-<p>In addition, we will run a hypothesis test, using use both the <code>t.test</code> command and the <code>infer</code> package to simulate from a null distribution, assuming zero difference between the two.</p>
+<p>We explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. The confidence intervals for the mean ratings of these two directors overlap. In addition, we will run a hypothesis test, using use both the <code>t.test</code> command and the <code>infer</code> package to simulate from a null distribution, assuming zero difference between the two.</p>
 <pre class="r"><code>movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
 glimpse(movies)</code></pre>
 <pre><code>## Rows: 2,961
@@ -52,13 +49,13 @@ null_dist_imdb %&gt;%
 <pre><code>## # A tibble: 1 x 1
 ##   p_value
 ##     &lt;dbl&gt;
-## 1   0.008</code></pre>
+## 1   0.012</code></pre>
 <pre class="r"><code>null_dist_imdb  %&gt;%
   get_confidence_interval(point_estimate = obs_diff_imdb, level = .95,type = &quot;se&quot;)</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   lower_ci upper_ci
 ##      &lt;dbl&gt;    &lt;dbl&gt;
-## 1    0.153     1.13</code></pre>
+## 1    0.134     1.15</code></pre>
 <pre class="r"><code>CI_Directors &lt;- Directors_F %&gt;%
   group_by(director) %&gt;%
   summarise(Mean=mean(rating), SE=sd(rating)/sqrt(n()), T.critical = qt(0.975,n()-1),Upper_CI = Mean+SE*T.critical, Lower_CI = Mean-SE*T.critical)

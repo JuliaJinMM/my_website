@@ -92,10 +92,10 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Covid-19"
+      title = "Youth Risk Behavior Surveillance"
      # subtitle = ""
-      image = "project2.jpg"
-      url = "blogs/blog6"
+      image = "projects/project2.jpg"
+      url = "blogs/blog7"
 
     [[params.tiles.showcase]]
       title = "Movie analysis"
@@ -103,11 +103,11 @@ disqusShortname = ""
       image = "projects/project1.jpg"
       url = "blogs/blog5"
 
-   # [[params.tiles.showcase]]
-    #  title = "Covid-19"
+    [[params.tiles.showcase]]
+    # title = "Covid-19"
      # subtitle = ""
-     # image = "pic03.jpg"
-      #url = "blogs/magna"
+     #image = "pic03.jpg"
+    #  url = "blogs/blog7"
 
    #[[params.tiles.showcase]]
      #title = "Ipsum"

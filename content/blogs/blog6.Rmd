@@ -1,0 +1,97 @@
+---
+title: "Climate Change"
+output: html_document
+slug: blog5 
+image: "project2.jpg"
+---
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, echo=FALSE}
+
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+library(tidyr)
+library(lubridate)
+library(RColorBrewer)
+
+```
+
+
+
+```{r}
+
+#import the annual temperatures
+temp_lisboa <- read_csv("temp_lisboa.csv")
+
+str(temp_lisboa)
+```
+
+
+```{r}
+#select only the annual temperature and year column
+temp_lisboa_yr <- select(temp_lisboa, YEAR, metANN)
+
+#rename the temperature column
+temp_lisboa_yr <- rename(temp_lisboa_yr, ta = metANN)
+
+#missing values 999.9
+summary(temp_lisboa_yr) 
+```
+
+```{r}
+temp_lisboa_yr <- mutate(temp_lisboa_yr, date = str_c(YEAR, "01-01", sep = "-") %>% ymd())
+```
+
+```{r}
+theme_strip <- theme_minimal()+
+                 theme(axis.text.y = element_blank(),
+                       axis.line.y = element_blank(),
+                       axis.title = element_blank(),
+                       panel.grid.major = element_blank(),
+                       legend.title = element_blank(),
+                       axis.text.x = element_text(vjust = 3),
+                       panel.grid.minor = element_blank(),
+                        plot.title = element_text(size = 14, face = "bold")
+                       )
+
+
+col_strip <- brewer.pal(12, "Paired")
+
+           ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill= ta))+
+        geom_tile()+
+           scale_x_date(date_breaks = "6 years",
+                     date_labels = "%Y",
+                     expand = c(0, 0))+
+           scale_y_continuous(expand = c(0, 0))+
+           scale_fill_gradientn(colors = rev(col_strip))+
+             guides(fill = guide_colorbar(barwidth = 1))+
+            labs(title = "LISBOA 1880-2018",
+                caption = "Data: GISS Surface Temperature Analysis")+
+              theme_strip
+```
+
