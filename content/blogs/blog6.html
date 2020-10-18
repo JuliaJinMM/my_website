@@ -1,12 +1,13 @@
 ---
-title: "Climate Change"
+title: "Lisbon Temperature"
 output: html_document
-slug: blog5 
-image: "project2.jpg"
+slug: blog6 
+image: "project3.jpg"
 ---
 
 
 
+<p>In this project, we would like to represent the temperature change in Lisbon with warming stripes.</p>
 <pre class="r"><code>#import the annual temperatures
 temp_lisboa &lt;- read_csv(&quot;temp_lisboa.csv&quot;)
 
@@ -51,6 +52,7 @@ str(temp_lisboa)</code></pre>
 ##   ..   `S-O-N` = col_double(),
 ##   ..   metANN = col_double()
 ##   .. )</code></pre>
+<p>First, we replace the missing values 999.9 with NA, using the ifelse( ) function that evaluates a condition and perform the given argument corresponding to true and false.</p>
 <pre class="r"><code>#select only the annual temperature and year column
 temp_lisboa_yr &lt;- select(temp_lisboa, YEAR, metANN)
 
@@ -66,7 +68,9 @@ summary(temp_lisboa_yr) </code></pre>
 ##  Mean   :1949   Mean   :  37  
 ##  3rd Qu.:1984   3rd Qu.:  17  
 ##  Max.   :2018   Max.   :1000</code></pre>
+<pre class="r"><code>temp_lisboa_yr &lt;- mutate(temp_lisboa_yr, ta = ifelse(ta == 999.9, NA, ta))</code></pre>
 <pre class="r"><code>temp_lisboa_yr &lt;- mutate(temp_lisboa_yr, date = str_c(YEAR, &quot;01-01&quot;, sep = &quot;-&quot;) %&gt;% ymd())</code></pre>
+<p>Secondly, we create the graph with RColorBrewer to create the visual effect.</p>
 <pre class="r"><code>theme_strip &lt;- theme_minimal()+
                  theme(axis.text.y = element_blank(),
                        axis.line.y = element_blank(),
@@ -79,7 +83,7 @@ summary(temp_lisboa_yr) </code></pre>
                        )
 
 
-col_strip &lt;- brewer.pal(12, &quot;Paired&quot;)
+col_strip &lt;- brewer.pal(11, &quot;Spectral&quot;)
 
            ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill = ta))+
         geom_tile()+
@@ -92,4 +96,6 @@ col_strip &lt;- brewer.pal(12, &quot;Paired&quot;)
             labs(title = &quot;LISBOA 1880-2018&quot;,
                 caption = &quot;Data: GISS Surface Temperature Analysis&quot;)+
               theme_strip</code></pre>
-<p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Based on the graph, we can observe that the overall temperature in Lisbon has increased a lot since 1880, it has hardly gone under 16 since the 90’s.
+This representation is a very useful and quick tool to have a quick overlook of the temperature variation in different locations and to attest the global warming issue.</p>

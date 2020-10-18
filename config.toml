@@ -104,9 +104,9 @@ disqusShortname = ""
       url = "blogs/blog5"
 
     [[params.tiles.showcase]]
-    title = "Lisboa Temperature"
+    title = "Lisbon Temperature Variation"
      #subtitle = ""
-     #image = "pic03.jpg"
+     image = "projects/project3.jpg"
      url = "blogs/blog6"
 
    #[[params.tiles.showcase]]

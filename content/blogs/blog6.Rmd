@@ -1,9 +1,13 @@
 ---
-title: "Climate Change"
+title: "Lisbon Temperature"
 output: html_document
-slug: blog5 
-image: "project2.jpg"
+slug: blog6 
+image: "project3.jpg"
 ---
+
+In this project, we would like to represent the temperature change in Lisbon with warming stripes. 
+
+
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
@@ -51,6 +55,7 @@ temp_lisboa <- read_csv("temp_lisboa.csv")
 str(temp_lisboa)
 ```
 
+First, we replace the missing values 999.9 with NA, using the ifelse( ) function that evaluates a condition and perform the given argument corresponding to true and false.
 
 ```{r}
 #select only the annual temperature and year column
@@ -62,10 +67,18 @@ temp_lisboa_yr <- rename(temp_lisboa_yr, ta = metANN)
 #missing values 999.9
 summary(temp_lisboa_yr) 
 ```
+```{r}
+temp_lisboa_yr <- mutate(temp_lisboa_yr, ta = ifelse(ta == 999.9, NA, ta))
+```
+
 
 ```{r}
 temp_lisboa_yr <- mutate(temp_lisboa_yr, date = str_c(YEAR, "01-01", sep = "-") %>% ymd())
 ```
+
+
+Secondly, we create the graph with RColorBrewer to create the visual effect.
+
 
 ```{r}
 theme_strip <- theme_minimal()+
@@ -80,7 +93,7 @@ theme_strip <- theme_minimal()+
                        )
 
 
-col_strip <- brewer.pal(12, "Paired")
+col_strip <- brewer.pal(11, "Spectral")
 
            ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill = ta))+
         geom_tile()+
@@ -95,3 +108,5 @@ col_strip <- brewer.pal(12, "Paired")
               theme_strip
 ```
 
+Based on the graph, we can observe that the overall temperature in Lisbon has increased a lot since 1880, it has hardly gone under 16 since the 90's.
+This representation is a very useful and quick tool to have a quick overlook of the temperature variation in different locations and to attest the global warming issue. 
