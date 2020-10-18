@@ -6,4 +6,4 @@ slug: blogs
 title: My projects
 ---
 
-Discover my projects
+You can find here different projects, hope you will find them instructive.
