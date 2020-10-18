@@ -139,7 +139,7 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "Quote from my favourite author"
-    subtitle = """Self-knowledge is no guarantee of happiness, but it is on the side of happiness and can supply the courage to fight for it - Simone de Beauvoir
+    subtitle = "Self-knowledge is no guarantee of happiness, but it is on the side of happiness and can supply the courage to fight for it - Simone de Beauvoir"    
     buttonText = "Learn more"
     url = "https://www.theguardian.com/books/2014/jan/09/simone-de-beauvoir-google-doodle-quotes"
 
