@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Julia Jin"
-  description = "Hello everyone, welcome"
+  description = "Welcome to my website"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
-    subtitle = "By HTML5 Up"
+    title = "Julia Jin"
+    subtitle = "Welcome"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -51,13 +51,13 @@ disqusShortname = ""
       name = "Blogs"
       url = "blogs"
 
-    [[params.navigation.links]]
-      name = "Generic Blog"
-      url = "blogs/ipsum"
+#   [[params.navigation.links]]
+#    name = "#"
+#     url = "blogs/ipsum"
 
-    [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+#  [[params.navigation.links]]
+#   name = "Elements"
+#  url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -72,17 +72,17 @@ disqusShortname = ""
       url = "blogs"
 
     # Button Style 2
-    [[params.navigation.button2]]
-      name = "Log In"
-      url = "#"
+   # [[params.navigation.button2]]
+    #  name = "Log In"
+     # url = "#"
 
 
   # Banner section
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Forty"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
+    title = "Hi, my name is Julia"
+    subtitle = "If you want to learn more about me, click here."
     buttonText = "Get Started"
 
 
@@ -92,40 +92,40 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Aliquam"
-      subtitle = "Ipsum Dolor Sit Amet"
+      title = "Gun violence in Chicago"
+     # subtitle = ""
       image = "pic01.jpg"
-      url = "blogs/aliquam"
+      url = "blogs/mystory"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "Movie analysis"
+     # subtitle = ""
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "blogs/myproject"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
+      title = "Covid-19"
+     # subtitle = ""
       image = "pic03.jpg"
       url = "blogs/magna"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+     #title = "Ipsum"
+      #subtitle = "Nisl Sed Aliquam"
+      #image = "pic04.jpg"
+      #url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+     # title = "Consequat"
+      #subtitle = "Ipsum Dolor Sit Amet"
+      #image = "pic05.jpg"
+      #url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+     # title = "Etiam"
+      #subtitle = "Feugiat Amet Tempus"
+      #image = "pic06.jpg"
+      #url = "blogs/ipsum"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -138,14 +138,10 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+    title = "Quote from my favourite author"
+    subtitle = """Self-knowledge is no guarantee of happiness, but it is on the side of happiness and can supply the courage to fight for it - Simone de Beauvoir
+    buttonText = "Learn more"
+    url = "https://www.theguardian.com/books/2014/jan/09/simone-de-beauvoir-google-doodle-quotes"
 
 
   # Contact section
@@ -172,47 +168,47 @@ disqusShortname = ""
     # by copying the corresponding map with frontmatter code.
     [[params.contact.email]]
     title = "Email"
-    email = "example@domain.com"
+    email = "juliaj.mfa2021@london.edu"
 
     [[params.contact.phone]]
-    title = "Phone"
-    phone = "(000) 000-0000 x1234"
+   # title = "Phone"
+    #phone = "(000) 33 44"
 
     [[params.contact.address]]
     title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+  #  street = "Street"
+    city = "Paris"
+    country = "France"
 
   # Footer section
   [params.footer]
     enable = true
-    copyright = "Company Name"
+    copyright = "London Business School"
 
     # Uses font awesome icons
     [[params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com"
-      label = "Twitter"
+    #  icon = "fa-twitter"
+     # url= "https://www.twitter.com"
+      #label = "Twitter"
 
     [[params.footer.social]]
       icon = "fa-facebook"
-      url= "https://www.facebook.com"
+      url= "https://www.facebook.com/juliajin24"
       label = "Facebook"
 
     [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+    #  icon = "fa-instagram"
+    #  url= "https://www.instagram.com"
+   #   label = "Instagram"
     
     [[params.footer.social]]
-      icon = "fa-github"
-      url= "https://www.github.com"
-      label = "GitHub"
+    #  icon = "fa-github"
+     # url= "https://www.github.com"
+  #    label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "https://www.linkedin.com/juliajin01"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
