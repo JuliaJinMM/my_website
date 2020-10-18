@@ -1,0 +1,95 @@
+---
+title: "Climate Change"
+output: html_document
+slug: blog5 
+image: "project2.jpg"
+---
+
+
+
+<pre class="r"><code>#import the annual temperatures
+temp_lisboa &lt;- read_csv(&quot;temp_lisboa.csv&quot;)
+
+str(temp_lisboa)</code></pre>
+<pre><code>## tibble [139 x 18] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ YEAR  : num [1:139] 1880 1881 1882 1883 1884 ...
+##  $ JAN   : num [1:139] 9.17 11.37 10.07 10.86 11.16 ...
+##  $ FEB   : num [1:139] 12 11.8 11.9 11.5 10.6 ...
+##  $ MAR   : num [1:139] 13.6 14.1 13.5 10.5 12.4 ...
+##  $ APR   : num [1:139] 13.1 14.4 14 13.8 12.2 ...
+##  $ MAY   : num [1:139] 15.7 17.3 15.6 14.6 16.4 ...
+##  $ JUN   : num [1:139] 17 19.2 17.9 17.2 19.1 ...
+##  $ JUL   : num [1:139] 19.1 21.8 20.3 19.5 21.4 ...
+##  $ AUG   : num [1:139] 20.6 23.5 21 21.6 22.4 ...
+##  $ SEP   : num [1:139] 20.7 20 18 18.8 19.5 ...
+##  $ OCT   : num [1:139] 17.9 16.3 16.4 15.8 16.4 ...
+##  $ NOV   : num [1:139] 12.5 14.7 13.7 13.5 12.5 ...
+##  $ DEC   : num [1:139] 11.07 9.97 10.66 9.46 10.25 ...
+##  $ D-J-F : num [1:139] 10.7 11.4 10.6 11 10.4 ...
+##  $ M-A-M : num [1:139] 14.1 15.2 14.3 12.9 13.6 ...
+##  $ J-J-A : num [1:139] 18.9 21.5 19.7 19.4 20.9 ...
+##  $ S-O-N : num [1:139] 17 17 16 16 16.1 ...
+##  $ metANN: num [1:139] 15.2 16.3 15.2 14.8 15.3 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   YEAR = col_double(),
+##   ..   JAN = col_double(),
+##   ..   FEB = col_double(),
+##   ..   MAR = col_double(),
+##   ..   APR = col_double(),
+##   ..   MAY = col_double(),
+##   ..   JUN = col_double(),
+##   ..   JUL = col_double(),
+##   ..   AUG = col_double(),
+##   ..   SEP = col_double(),
+##   ..   OCT = col_double(),
+##   ..   NOV = col_double(),
+##   ..   DEC = col_double(),
+##   ..   `D-J-F` = col_double(),
+##   ..   `M-A-M` = col_double(),
+##   ..   `J-J-A` = col_double(),
+##   ..   `S-O-N` = col_double(),
+##   ..   metANN = col_double()
+##   .. )</code></pre>
+<pre class="r"><code>#select only the annual temperature and year column
+temp_lisboa_yr &lt;- select(temp_lisboa, YEAR, metANN)
+
+#rename the temperature column
+temp_lisboa_yr &lt;- rename(temp_lisboa_yr, ta = metANN)
+
+#missing values 999.9
+summary(temp_lisboa_yr) </code></pre>
+<pre><code>##       YEAR            ta      
+##  Min.   :1880   Min.   :  15  
+##  1st Qu.:1914   1st Qu.:  16  
+##  Median :1949   Median :  16  
+##  Mean   :1949   Mean   :  37  
+##  3rd Qu.:1984   3rd Qu.:  17  
+##  Max.   :2018   Max.   :1000</code></pre>
+<pre class="r"><code>temp_lisboa_yr &lt;- mutate(temp_lisboa_yr, date = str_c(YEAR, &quot;01-01&quot;, sep = &quot;-&quot;) %&gt;% ymd())</code></pre>
+<pre class="r"><code>theme_strip &lt;- theme_minimal()+
+                 theme(axis.text.y = element_blank(),
+                       axis.line.y = element_blank(),
+                       axis.title = element_blank(),
+                       panel.grid.major = element_blank(),
+                       legend.title = element_blank(),
+                       axis.text.x = element_text(vjust = 3),
+                       panel.grid.minor = element_blank(),
+                        plot.title = element_text(size = 14, face = &quot;bold&quot;)
+                       )
+
+
+col_strip &lt;- brewer.pal(12, &quot;Paired&quot;)
+
+           ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill = ta))+
+        geom_tile()+
+           scale_x_date(date_breaks = &quot;10 years&quot;,
+                     date_labels = &quot;%Y&quot;,
+                     expand = c(0, 0))+
+           scale_y_continuous(expand = c(0, 0))+
+           scale_fill_gradientn(colors = rev(col_strip))+
+             guides(fill = guide_colorbar(barwidth = 1))+
+            labs(title = &quot;LISBOA 1880-2018&quot;,
+                caption = &quot;Data: GISS Surface Temperature Analysis&quot;)+
+              theme_strip</code></pre>
+<p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-4-1.png" width="648" style="display: block; margin: auto;" /></p>

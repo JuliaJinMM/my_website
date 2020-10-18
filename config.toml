@@ -104,10 +104,10 @@ disqusShortname = ""
       url = "blogs/blog5"
 
     [[params.tiles.showcase]]
-    # title = "Covid-19"
-     # subtitle = ""
+    title = "Lisboa Temperature"
+     #subtitle = ""
      #image = "pic03.jpg"
-    #  url = "blogs/blog7"
+     url = "blogs/blog6"
 
    #[[params.tiles.showcase]]
      #title = "Ipsum"

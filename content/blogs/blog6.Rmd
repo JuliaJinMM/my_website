@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 ```{r load-libraries, echo=FALSE}
 
-library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(tidyverse)
 library(mosaic)
 library(ggthemes)
 library(GGally)
@@ -82,9 +82,9 @@ theme_strip <- theme_minimal()+
 
 col_strip <- brewer.pal(12, "Paired")
 
-           ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill= ta))+
+           ggplot(temp_lisboa_yr,aes(x = date, y = 1, fill = ta))+
         geom_tile()+
-           scale_x_date(date_breaks = "6 years",
+           scale_x_date(date_breaks = "10 years",
                      date_labels = "%Y",
                      expand = c(0, 0))+
            scale_y_continuous(expand = c(0, 0))+
