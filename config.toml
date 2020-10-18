@@ -94,14 +94,14 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Gun violence in Chicago"
      # subtitle = ""
-      image = "pic01.jpg"
-      url = "blogs/mystory"
+      image = "projects/project2.jpg"
+      url = "blogs/blog2"
 
     [[params.tiles.showcase]]
       title = "Movie analysis"
      # subtitle = ""
       image = "projects/project1.jpg"
-      url = "content/projects/project1"
+      url = "blogs/blog1"
 
     [[params.tiles.showcase]]
       title = "Covid-19"

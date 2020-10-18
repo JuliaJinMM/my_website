@@ -2,7 +2,7 @@
 title = "Movies ratings"
 subtitle = "The mean IMDB rating for Steven Spielberg and Tim Burton "
 image = "projects/project1.jpg"
-url = "projects/project1"
+url = "blogs/blog1"
 ---
 
 
