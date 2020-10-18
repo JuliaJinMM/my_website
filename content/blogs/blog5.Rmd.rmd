@@ -1,8 +1,13 @@
 ---
-title = "Movies ratings"
-subtitle = "The mean IMDB rating for Steven Spielberg and Tim Burton "
+categories:
+-""
+-""
+date: "2020-10-18"
+description = "The mean IMDB rating for Steven Spielberg and Tim Burton "
+draft: false
 image = "projects/project1.jpg"
-url = "blogs/blog1"
+slug: blog 5
+title = "Movies ratings"
 ---
 
 
