@@ -2,11 +2,24 @@
 title: "Movies ratings"
 output: html_document
 slug: blog5 
-image: project1.jpg
+image: "project1.jpg"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
 ```
 
 
@@ -26,6 +39,7 @@ library(openintro)
 library(tidyquant)
 ```
 
+# IMDB ratings: Differences between directors
 
 We explore whether the mean IMDB rating for Steven Spielberg and Tim Burton are the same or not. The confidence intervals for the mean ratings of these two directors overlap. 
 
@@ -114,4 +128,5 @@ ggplot(CI_Directors, aes(x=Mean, y=reorder(director, Mean)))+
 ```
 
 Conclusion: the confidence intervals of the 2 groups overlap, we could think that the difference between the groups is not statistically significant. However, it does not tell the whole story. The results also shows a p value of 0.014, we can reject the null hypothesis. P value usually varies between 0 and 1, with a p value less than 0.05, in this case it is 0.014, so there is 1.4% probability the null is correct.The p value is statistically significant. Therefore, despite the overlapping, the difference between these 2 means is statistically significant.
+
 
