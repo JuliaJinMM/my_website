@@ -1,0 +1,30 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-18"
+description: ""
+draft: false
+image: projects/project1.jpg
+keywords: ""
+slug: ipsum
+title: Covid-19
+---
+```{r load-libraries, echo=FALSE}
+library(tidyverse)
+library(lubridate)
+```
+
+```{r}
+data <-read.csv("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv")
+```
+
+```{r}
+data_long <-data %>%
+  pivot_longer(-c(1:4), names_to= "date") %>%
+mutate(date = mdy(date))
+```
+
+
+
+

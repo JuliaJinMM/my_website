@@ -1,14 +1,13 @@
 ---
-categories:
--""
--""
-date: "2020-10-18"
-description = "The mean IMDB rating for Steven Spielberg and Tim Burton "
-draft: false
-image = "projects/project1.jpg"
-slug: blog 5
-title = "Movies ratings"
+title: "Movies ratings"
+output: html_document
+slug: blog5 
+image: project1.jpg
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 
 ```{r load-libraries, echo=FALSE}
